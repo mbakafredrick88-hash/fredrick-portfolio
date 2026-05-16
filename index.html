@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fredrick — UI/UX Designer & Visual Identity Specialist | Ibadan, Nigeria</title>
+<meta name="description" content="Mbaka Fredrick — Premium UI/UX Designer and Visual Identity Specialist based in Ibadan, Nigeria. Designing interfaces, apps, and brands built to perform."/>
+<meta name="keywords" content="UI/UX Designer Nigeria, UI/UX Designer Ibadan, Graphic Designer Nigeria, App Design Nigeria, Visual Identity Nigeria, Freelance Designer Nigeria, Mbaka Fredrick"/>
+<meta name="author" content="Mbaka Fredrick"/>
+<meta property="og:title" content="Fredrick — UI/UX Designer & Visual Identity Specialist"/>
+<meta property="og:description" content="Premium UI/UX Designer based in Ibadan, Nigeria. Designing interfaces, apps, and brands built to perform."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://designwithfred.vercel.app"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Fredrick — UI/UX Designer"/>
+<meta name="twitter:description" content="Premium UI/UX Designer based in Ibadan, Nigeria."/>
+<meta name="twitter:site" content="@designwithfred"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0a'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='Georgia,serif' fill='%23c9a96e'>F</text></svg>"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --black:#0a0a0a;
+  --surface:#131313;
+  --surface-low:#0e0e0e;
+  --surface-high:#1c1c1b;
+  --surface-bright:#252523;
+  --gold:#c9a96e;
+  --gold-light:#e6c487;
+  --gold-dim:rgba(201,169,110,0.15);
+  --gold-glow:rgba(201,169,110,0.08);
+  --white:#f0ece4;
+  --muted:rgba(240,236,228,0.45);
+  --dimmer:rgba(240,236,228,0.25);
+  --outline:rgba(77,70,58,0.4);
+  --serif:'Noto Serif',Georgia,serif;
+  --sans:'Manrope',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;cursor:none;}
+
+/* GRAIN */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9990;opacity:0.4;}
+
+/* CURSOR */
+.cur{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s;}
+.cur-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(201,169,110,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s;}
+
+/* SCROLL BAR */
+#spb{position:fixed;top:0;left:0;height:2px;background:var(--gold);z-index:9997;width:0%;transition:width 0.1s;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 5rem;background:rgba(10,10,10,0.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--outline);}
+.nav-logo{font-family:var(--serif);font-size:1.1rem;font-weight:300;letter-spacing:0.06em;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.4s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,169,110,0.3);padding:0.5rem 1.3rem;text-decoration:none;transition:all 0.4s;}
+.nav-cta:hover{background:var(--gold);color:var(--black);}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 5rem 5rem;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;right:-5%;top:50%;transform:translateY(-50%);width:50vw;height:50vw;background:radial-gradient(circle,rgba(201,169,110,0.04) 0%,transparent 65%);pointer-events:none;}
+.hero-crumbs{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--dimmer);margin-bottom:1.5rem;}
+.hero-crumbs span{color:var(--gold);}
+.hero-status{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.2);padding:0.35rem 0.9rem;margin-bottom:2rem;}
+.hero-status::before{content:'';width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.hero-title{font-family:var(--serif);font-size:clamp(3rem,6.5vw,7rem);font-weight:300;line-height:1.02;letter-spacing:-0.02em;max-width:900px;margin-bottom:1.5rem;}
+.hero-title em{font-style:italic;color:var(--gold);}
+.hero-title .typed-cursor{color:var(--gold);animation:blink 1s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.hero-sub{font-size:0.95rem;color:var(--muted);max-width:480px;line-height:1.8;margin-bottom:3rem;}
+.hero-actions{display:flex;gap:1.2rem;align-items:center;margin-bottom:5rem;}
+.btn-gold{background:var(--gold);color:var(--black);padding:0.85rem 2rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;text-decoration:none;border:none;cursor:none;transition:all 0.4s;}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{color:var(--muted);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.4s;background:none;border:none;cursor:none;}
+.btn-outline:hover{color:var(--white);}
+.hero-stats{display:flex;gap:4rem;}
+.stat-num{font-family:var(--serif);font-size:2.5rem;font-weight:300;line-height:1;color:var(--white);}
+.stat-num span{color:var(--gold);font-style:italic;}
+.stat-label{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dimmer);margin-top:0.3rem;}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--dimmer);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;animation:float 2s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+
+/* SECTIONS */
+section{padding:8rem 5rem;}
+.sec-label{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;}
+.sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.sec-title{font-family:var(--serif);font-size:clamp(2.2rem,4vw,4rem);font-weight:300;line-height:1.1;margin-bottom:0.8rem;}
+.sec-title em{font-style:italic;color:var(--gold);}
+.sec-intro{color:var(--muted);font-size:0.88rem;max-width:500px;line-height:1.8;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s ease,transform 0.9s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* PROJECTS */
+#projects{background:var(--surface-low);}
+.projects-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;}
+.projects-count{font-family:var(--serif);font-size:0.8rem;color:var(--dimmer);font-style:italic;}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,0.04);}
+.proj-card{background:var(--surface);overflow:hidden;position:relative;cursor:none;}
+.proj-card:first-child{grid-column:span 2;}
+.proj-img{width:100%;height:320px;object-fit:cover;display:block;transition:transform 0.8s ease,filter 0.4s ease;filter:brightness(0.85) saturate(0.7);}
+.proj-card:first-child .proj-img{height:420px;}
+.proj-card:hover .proj-img{transform:scale(1.04);filter:brightness(0.7) saturate(0.5);}
+.proj-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.97) 0%,rgba(0,0,0,0.6) 45%,rgba(0,0,0,0.15) 100%);transition:background 0.4s;}
+.proj-card:hover .proj-overlay{background:linear-gradient(to top,rgba(0,0,0,0.98) 0%,rgba(0,0,0,0.75) 55%,rgba(0,0,0,0.3) 100%);}
+.proj-content{position:absolute;bottom:0;left:0;right:0;padding:2rem;}
+.proj-tag{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);background:rgba(0,0,0,0.6);padding:0.2rem 0.6rem;display:inline-block;margin-bottom:0.7rem;}
+.proj-name{font-family:var(--serif);font-size:1.6rem;font-weight:300;margin-bottom:0.5rem;line-height:1.2;color:#ffffff;text-shadow:0 2px 8px rgba(0,0,0,0.9);}
+.proj-card:first-child .proj-name{font-size:2.2rem;}
+.proj-desc{font-size:0.8rem;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:1rem;max-width:480px;opacity:0;transform:translateY(8px);transition:opacity 0.4s,transform 0.4s;text-shadow:0 1px 4px rgba(0,0,0,0.8);}
+.proj-card:hover .proj-desc{opacity:1;transform:translateY(0);}
+.proj-link{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;border-bottom:1px solid rgba(201,169,110,0.5);padding-bottom:0.15rem;transition:gap 0.3s,border-color 0.3s;text-shadow:none;}
+.proj-link:hover{gap:0.7rem;border-color:var(--gold);}
+
+/* APP SECTION */
+#apps{background:var(--black);}
+.apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,0.04);margin-top:3rem;}
+.app-card{background:var(--surface);overflow:hidden;position:relative;cursor:none;}
+.app-img{width:100%;height:340px;object-fit:cover;display:block;transition:transform 0.8s ease;filter:brightness(0.85);}
+.app-card:hover .app-img{transform:scale(1.04);}
+.app-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.3) 55%,transparent 100%);}
+.app-content{position:absolute;bottom:0;left:0;right:0;padding:2rem;}
+.app-screens{font-size:0.6rem;letter-spacing:0.15em;color:var(--dimmer);text-transform:uppercase;margin-top:0.5rem;}
+
+/* ABOUT */
+#about{background:var(--surface-low);position:relative;overflow:hidden;}
+.about-pattern{position:absolute;inset:0;background-image:radial-gradient(rgba(201,169,110,0.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;}
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:6rem;align-items:start;position:relative;}
+.about-body p{color:var(--muted);font-size:0.92rem;line-height:1.9;margin-bottom:1.2rem;}
+.about-body p:first-child{color:var(--white);font-size:1rem;}
+.about-sig{margin-top:2.5rem;font-family:var(--serif);font-size:2rem;font-style:italic;color:var(--gold);font-weight:300;}
+.about-pills{display:flex;flex-direction:column;gap:0;}
+.pill{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;border-bottom:1px solid var(--outline);transition:background 0.3s;}
+.pill:first-child{border-top:1px solid var(--outline);}
+.pill-key{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dimmer);}
+.pill-val{font-size:0.82rem;color:var(--white);font-weight:400;}
+.pill-val.open{color:var(--gold);}
+
+/* SERVICES */
+#services{background:var(--black);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.04);margin-top:3rem;}
+.svc-card{background:var(--surface);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.4s;}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.5s ease;}
+.svc-card:hover{background:var(--surface-high);}
+.svc-card:hover::after{transform:scaleX(1);}
+.svc-card.featured{background:var(--surface-high);}
+.svc-card.featured::after{transform:scaleX(1);}
+.svc-tier{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.svc-name{font-family:var(--serif);font-size:1.5rem;font-weight:300;margin-bottom:0.5rem;}
+.svc-price{font-family:var(--serif);font-size:1.1rem;color:var(--gold);font-style:italic;margin-bottom:1.5rem;}
+.svc-list{list-style:none;margin-bottom:2rem;}
+.svc-list li{font-size:0.82rem;color:var(--muted);padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:flex-start;gap:0.6rem;line-height:1.5;}
+.svc-list li::before{content:'✦';color:var(--gold);font-size:0.45rem;margin-top:0.45rem;flex-shrink:0;}
+.svc-btn{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:0.7rem 1.5rem;border:none;cursor:none;transition:background 0.3s;text-decoration:none;display:inline-block;}
+.svc-btn:hover{background:var(--gold-light);}
+.svc-card.featured .svc-btn{width:100%;text-align:center;}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--surface-low);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.04);margin-top:3rem;}
+.testi-card{background:var(--surface);padding:3rem 2.5rem;transition:background 0.3s;}
+.testi-card:hover{background:var(--surface-high);}
+.testi-stars{color:var(--gold);font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.5rem;}
+.testi-quote{font-family:var(--serif);font-size:1.1rem;font-style:italic;font-weight:300;line-height:1.8;color:var(--white);margin-bottom:2rem;}
+.testi-author{padding-top:1.5rem;border-top:1px solid var(--outline);}
+.testi-name{font-size:0.78rem;font-weight:500;letter-spacing:0.05em;}
+.testi-role{font-size:0.65rem;color:var(--dimmer);margin-top:0.2rem;letter-spacing:0.08em;}
+
+/* CONTACT */
+#contact{background:var(--black);text-align:center;position:relative;overflow:hidden;}
+#contact::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60vw;height:40vw;background:radial-gradient(ellipse,rgba(201,169,110,0.04) 0%,transparent 65%);pointer-events:none;}
+.contact-inner{max-width:640px;margin:0 auto;position:relative;}
+.contact-avail{font-size:0.72rem;letter-spacing:0.15em;font-style:italic;color:var(--gold);margin-bottom:2rem;font-family:var(--serif);}
+.contact-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,5.5rem);font-weight:300;line-height:1.05;margin-bottom:1rem;}
+.contact-title em{font-style:italic;color:var(--gold);}
+.contact-sub{color:var(--muted);font-size:0.9rem;margin-bottom:3rem;line-height:1.8;}
+.contact-links{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3rem;}
+.contact-link{display:flex;align-items:center;gap:0.6rem;padding:0.85rem 1.5rem;border:1px solid var(--outline);color:var(--muted);text-decoration:none;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.4s;background:var(--surface);}
+.contact-link:hover{border-color:rgba(201,169,110,0.4);color:var(--gold);background:var(--surface-high);}
+.contact-email{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,169,110,0.3);padding-bottom:0.2rem;transition:border-color 0.3s;}
+.contact-email:hover{border-color:var(--gold);}
+
+/* FOOTER */
+footer{padding:2rem 5rem;border-top:1px solid var(--outline);display:flex;justify-content:space-between;align-items:center;background:var(--surface-low);}
+.footer-logo{font-family:var(--serif);font-size:1rem;font-weight:300;color:var(--dimmer);}
+.footer-logo span{color:var(--gold);}
+.footer-copy{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,236,228,0.2);}
+.footer-stamp{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dimmer);}
+
+/* FLOATING */
+.float-hire{position:fixed;bottom:2rem;right:2rem;background:var(--gold);color:var(--black);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;padding:0.75rem 1.4rem;z-index:500;text-decoration:none;transition:background 0.3s;font-family:var(--sans);}
+.float-hire:hover{background:var(--gold-light);}
+.float-wa{position:fixed;bottom:2rem;left:2rem;background:var(--surface-high);color:var(--white);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.75rem 1.4rem;z-index:500;text-decoration:none;border:1px solid var(--outline);transition:all 0.3s;display:flex;align-items:center;gap:0.5rem;}
+.float-wa:hover{border-color:rgba(201,169,110,0.4);color:var(--gold);}
+
+/* CHAT WIDGET */
+#chat-widget{position:fixed;bottom:5.5rem;right:2rem;z-index:600;}
+#chat-toggle{width:52px;height:52px;background:var(--surface-high);border:1px solid var(--outline);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;transition:all 0.4s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+#chat-toggle::before{content:'';position:absolute;inset:-4px;border:1px solid rgba(201,169,110,0.3);animation:chatglow 3s ease-in-out infinite;}
+@keyframes chatglow{0%,100%{opacity:0.3;transform:scale(1);}50%{opacity:0.8;transform:scale(1.08);}}
+#chat-toggle:hover{background:var(--surface-bright);border-color:rgba(201,169,110,0.5);}
+#chat-toggle svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.5;}
+#chat-label{position:absolute;bottom:calc(100% + 8px);right:0;background:var(--surface-high);border:1px solid var(--outline);padding:0.3rem 0.7rem;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+
+#chat-box{position:absolute;bottom:calc(100% + 1rem);right:0;width:340px;background:var(--surface);border:1px solid var(--outline);display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,0.5);}
+#chat-box.open{display:flex;}
+#chat-head{padding:1.2rem 1.5rem;background:var(--surface-high);border-bottom:1px solid var(--outline);display:flex;align-items:center;justify-content:space-between;}
+#chat-head-info{display:flex;align-items:center;gap:0.7rem;}
+#chat-avatar{width:32px;height:32px;background:var(--gold-dim);border:1px solid rgba(201,169,110,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:0.8rem;color:var(--gold);}
+#chat-name{font-size:0.78rem;font-weight:500;letter-spacing:0.04em;}
+#chat-status{font-size:0.6rem;color:var(--gold);letter-spacing:0.1em;display:flex;align-items:center;gap:0.3rem;}
+#chat-status::before{content:'';width:5px;height:5px;background:#4ade80;border-radius:50%;}
+#chat-close{background:none;border:none;cursor:none;color:var(--dimmer);font-size:1.1rem;transition:color 0.3s;line-height:1;}
+#chat-close:hover{color:var(--white);}
+#chat-messages{height:320px;overflow-y:auto;padding:1.2rem;display:flex;flex-direction:column;gap:0.8rem;scroll-behavior:smooth;}
+#chat-messages::-webkit-scrollbar{width:3px;}
+#chat-messages::-webkit-scrollbar-thumb{background:var(--outline);}
+.msg{max-width:85%;padding:0.7rem 0.9rem;font-size:0.78rem;line-height:1.6;}
+.msg.bot{background:var(--surface-high);color:var(--white);align-self:flex-start;}
+.msg.user{background:var(--gold-dim);color:var(--white);align-self:flex-end;border:1px solid rgba(201,169,110,0.2);}
+.msg.bot strong{color:var(--gold);}
+.chat-suggestions{padding:0.8rem 1.2rem;display:flex;flex-wrap:wrap;gap:0.5rem;border-top:1px solid var(--outline);background:var(--surface-low);}
+.sug-btn{font-size:0.65rem;letter-spacing:0.1em;padding:0.35rem 0.7rem;border:1px solid var(--outline);background:none;color:var(--muted);cursor:pointer;transition:all 0.3s;font-family:var(--sans);-webkit-tap-highlight-color:transparent;}
+.sug-btn:hover{border-color:rgba(201,169,110,0.4);color:var(--gold);}
+#chat-input-wrap{display:flex;border-top:1px solid var(--outline);}
+#chat-input{flex:1;background:none;border:none;padding:0.85rem 1rem;font-size:0.78rem;color:var(--white);font-family:var(--sans);outline:none;}
+#chat-input::placeholder{color:var(--dimmer);}
+#chat-send{background:var(--gold);border:none;padding:0 1rem;cursor:pointer;transition:background 0.3s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+#chat-send:hover{background:var(--gold-light);}
+#chat-send svg{width:14px;height:14px;stroke:var(--black);fill:none;stroke-width:2;}
+.typing{display:flex;gap:4px;align-items:center;padding:0.7rem 0.9rem;background:var(--surface-high);align-self:flex-start;}
+.typing span{width:5px;height:5px;background:var(--gold);border-radius:50%;animation:typing 1.2s infinite;}
+.typing span:nth-child(2){animation-delay:0.2s;}
+.typing span:nth-child(3){animation-delay:0.4s;}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:0.4;}30%{transform:translateY(-5px);opacity:1;}}
+.chat-handoff{padding:0.8rem 1.2rem;background:var(--gold-dim);border-top:1px solid rgba(201,169,110,0.2);font-size:0.72rem;color:var(--gold);display:none;gap:0.5rem;align-items:center;justify-content:space-between;}
+.chat-handoff a{color:var(--gold);text-decoration:none;font-weight:500;border-bottom:1px solid rgba(201,169,110,0.4);}
+
+/* PLACEHOLDER IMAGES */
+.proj-placeholder{width:100%;height:320px;background:var(--surface-high);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.proj-card:first-child .proj-placeholder{height:420px;}
+.proj-placeholder::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.04) 0%,transparent 50%);}
+.proj-placeholder-text{font-family:var(--serif);font-size:1.2rem;color:rgba(201,169,110,0.2);letter-spacing:0.1em;font-style:italic;}
+.app-placeholder{width:100%;height:340px;background:var(--surface-high);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.app-placeholder::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.04) 0%,transparent 50%);}
+
+/* TOOLS STRIP */
+#tools{background:var(--black);padding:5rem;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:1.5px;background:rgba(255,255,255,0.04);margin-top:3rem;}
+.tool-item{background:var(--surface);padding:1.8rem 2rem;display:flex;flex-direction:column;align-items:center;gap:0.7rem;flex:1;min-width:120px;transition:background 0.4s;}
+.tool-item:hover{background:var(--surface-high);}
+.tool-icon{font-size:1.8rem;line-height:1;}
+.tool-name{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);text-align:center;transition:color 0.4s;}
+.tool-item:hover .tool-name{color:var(--gold);}
+
+/* NUMBERS SECTION */
+#numbers{background:var(--surface-low);padding:6rem 5rem;}
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.04);margin-top:3rem;}
+.num-card{background:var(--surface);padding:3rem 2rem;text-align:center;transition:background 0.4s;}
+.num-card:hover{background:var(--surface-high);}
+.num-figure{font-family:var(--serif);font-size:4rem;font-weight:300;line-height:1;color:var(--white);}
+.num-figure span{color:var(--gold);font-style:italic;}
+.num-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dimmer);margin-top:0.8rem;}
+
+/* CV BUTTON */
+.cv-btn{display:inline-flex;align-items:center;gap:0.6rem;margin-top:2rem;padding:0.8rem 1.8rem;border:1px solid rgba(201,169,110,0.35);color:var(--gold);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;transition:all 0.4s;font-family:var(--sans);}
+.cv-btn:hover{background:var(--gold);color:var(--black);}
+.cv-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+
+
+.marquee-wrap{padding:1.2rem 0;overflow:hidden;background:var(--surface-low);border-top:1px solid var(--outline);border-bottom:1px solid var(--outline);}
+.marquee-wrap.reverse{background:var(--surface);border-top:none;}
+.marquee-track{display:flex;gap:0;white-space:nowrap;width:max-content;}
+.marquee-track.left{animation:scrollLeft 25s linear infinite;}
+.marquee-track.right{animation:scrollRight 25s linear infinite;}
+@keyframes scrollLeft{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes scrollRight{from{transform:translateX(-50%);}to{transform:translateX(0);}}
+.marquee-item{display:inline-flex;align-items:center;gap:1.5rem;padding:0 1.5rem;font-size:0.82rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(201,169,110,0.7);font-family:var(--sans);font-weight:400;}
+.marquee-item span{color:var(--gold);font-size:0.6rem;}
+.marquee-divider{height:1px;background:linear-gradient(to right,transparent,var(--outline),transparent);}
+
+
+#process{background:var(--surface-low);}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.04);margin-top:3rem;}
+.process-card{background:var(--surface);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.4s;}
+.process-card:hover{background:var(--surface-high);}
+.process-num{font-family:var(--serif);font-size:4rem;font-weight:300;color:rgba(201,169,110,0.08);line-height:1;margin-bottom:1.5rem;transition:color 0.4s;}
+.process-card:hover .process-num{color:rgba(201,169,110,0.18);}
+.process-line{width:24px;height:1px;background:var(--gold);margin-bottom:1.2rem;transform:scaleX(0);transform-origin:left;transition:transform 0.5s ease;}
+.process-card:hover .process-line{transform:scaleX(1);}
+.process-name{font-family:var(--serif);font-size:1.2rem;font-weight:400;margin-bottom:0.8rem;line-height:1.3;}
+.process-desc{font-size:0.82rem;color:var(--muted);line-height:1.85;}
+
+
+.pill{cursor:default;transition:padding 0.4s ease,background 0.4s ease;}
+.pill:hover{padding:1.1rem 0.8rem;background:rgba(201,169,110,0.04);}
+.pill:hover .pill-key{color:var(--gold);}
+.pill-key{transition:color 0.4s;}
+.pill-val{transition:color 0.4s,transform 0.4s;}
+.pill:hover .pill-val{transform:translateX(4px);}
+
+/* WORD CYCLE */
+.word-wrap{display:inline-block;position:relative;vertical-align:baseline;overflow:hidden;height:1.15em;}
+.word{display:inline-block;font-style:italic;color:var(--gold);opacity:0;transform:translateY(100%);transition:opacity 0.2s ease,transform 0.2s ease;white-space:nowrap;position:absolute;left:0;bottom:0;}
+.word.active{opacity:1;transform:translateY(0);position:relative;}
+.word.exit{opacity:0;transform:translateY(-100%);position:absolute;}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem;}
+  .nav-links{display:none;}
+  #hero{padding:7rem 1.5rem 4rem;}
+  .hero-stats{gap:1.5rem;}
+  .hero-title{font-size:2.4rem;}
+  section{padding:4rem 1.5rem;}
+  #tools{padding:4rem 1.5rem;}
+  #numbers{padding:4rem 1.5rem;}
+  .about-grid{grid-template-columns:1fr;gap:3rem;}
+  .projects-grid,.apps-grid,.services-grid,.testi-grid,.process-grid{grid-template-columns:1fr;}
+  .proj-card:first-child{grid-column:span 1;}
+  .numbers-grid{grid-template-columns:repeat(2,1fr);}
+  .num-figure{font-size:2.8rem;}
+  .tools-grid{gap:1.5px;}
+  .tool-item{min-width:80px;padding:1.2rem 1rem;}
+  .tool-icon{font-size:1.4rem;}
+  .tool-name{font-size:0.6rem;}
+  footer{flex-direction:column;gap:0.8rem;text-align:center;padding:1.5rem;}
+  .footer-stamp{display:none;}
+  body{cursor:auto;}
+  .cur,.cur-ring{display:none;}
+  .float-hire{bottom:1.2rem;right:1.2rem;padding:0.65rem 1.1rem;font-size:0.65rem;}
+  .float-wa{bottom:1.2rem;left:1.2rem;padding:0.65rem 1.1rem;font-size:0.65rem;}
+  #chat-widget{bottom:4.5rem;right:1.2rem;z-index:9999;}
+  #chat-toggle{width:48px;height:48px;cursor:pointer;}
+  #chat-toggle svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5;display:block;}
+  #chat-box{width:calc(100vw - 2.4rem);right:0;max-height:70vh;}
+  #chat-messages{height:240px;}
+  #chat-label{display:none;}
+  .sug-btn{cursor:pointer;}
+  #chat-send{cursor:pointer;}
+  #chat-close{cursor:pointer;}
+  .contact-links{gap:0.7rem;}
+  .contact-link{padding:0.7rem 1rem;font-size:0.65rem;}
+  .hero-stats{flex-wrap:wrap;gap:1.5rem;}
+  .proj-img{height:240px;}
+  .proj-card:first-child .proj-img{height:280px;}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+<div id="spb"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Fredrick<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#apps">Apps</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-crumbs">UI/UX Designer · <span>Ibadan, Nigeria</span></div>
+  <div class="hero-status">Available for Projects</div>
+  <h1 class="hero-title">I turn ideas into digital experiences that look <span class="word-wrap"><span class="word active">premium</span><span class="word">elite</span><span class="word">refined</span><span class="word">exceptional</span><span class="word">world-class</span></span> and convert.</h1>
+  <p class="hero-sub">UI/UX Designer & Visual Identity Specialist — designing interfaces, apps, products, and brands built to perform.</p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn-gold">View My Work</a>
+    <a href="#contact" class="btn-outline">Let's Talk →</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num" data-count="5">0<span>+</span></div><div class="stat-label">Web Projects</div></div>
+    <div><div class="stat-num" data-count="2">0<span>+</span></div><div class="stat-label">App Projects</div></div>
+    <div><div class="stat-num">5<span>★</span></div><div class="stat-label">Client Rating</div></div>
+  </div>
+  <div class="hero-scroll">↓ scroll</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track left">
+    <div class="marquee-item">UI/UX Design <span>✦</span></div>
+    <div class="marquee-item">App Design <span>✦</span></div>
+    <div class="marquee-item">Visual Identity <span>✦</span></div>
+    <div class="marquee-item">Product Design <span>✦</span></div>
+    <div class="marquee-item">Digital Advertising <span>✦</span></div>
+    <div class="marquee-item">Brand Strategy <span>✦</span></div>
+    <div class="marquee-item">UX Research <span>✦</span></div>
+    <div class="marquee-item">UI/UX Design <span>✦</span></div>
+    <div class="marquee-item">App Design <span>✦</span></div>
+    <div class="marquee-item">Visual Identity <span>✦</span></div>
+    <div class="marquee-item">Product Design <span>✦</span></div>
+    <div class="marquee-item">Digital Advertising <span>✦</span></div>
+    <div class="marquee-item">Brand Strategy <span>✦</span></div>
+    <div class="marquee-item">UX Research <span>✦</span></div>
+  </div>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-wrap reverse">
+  <div class="marquee-track right">
+    <div class="marquee-item">Available for Projects <span>✦</span></div>
+    <div class="marquee-item">Based in Ibadan <span>✦</span></div>
+    <div class="marquee-item">Designing for the World <span>✦</span></div>
+    <div class="marquee-item">Premium Quality <span>✦</span></div>
+    <div class="marquee-item">Conversion Focused <span>✦</span></div>
+    <div class="marquee-item">Built to Perform <span>✦</span></div>
+    <div class="marquee-item">Open to Work <span>✦</span></div>
+    <div class="marquee-item">Available for Projects <span>✦</span></div>
+    <div class="marquee-item">Based in Ibadan <span>✦</span></div>
+    <div class="marquee-item">Designing for the World <span>✦</span></div>
+    <div class="marquee-item">Premium Quality <span>✦</span></div>
+    <div class="marquee-item">Conversion Focused <span>✦</span></div>
+    <div class="marquee-item">Built to Perform <span>✦</span></div>
+    <div class="marquee-item">Open to Work <span>✦</span></div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal">
+    <div class="projects-header">
+      <div>
+        <div class="sec-label">Selected Work</div>
+        <h2 class="sec-title">Web <em>Projects</em></h2>
+        <p class="sec-intro">Designed for clarity, usability, and conversion.</p>
+      </div>
+      <div class="projects-count">01 — 05</div>
+    </div>
+    <div class="projects-grid">
+      <div class="proj-card">
+        <img class="proj-img" src="https://i.ibb.co/wNY23YJC/image.png" alt="DevCheque"/>
+        <div class="proj-overlay"></div>
+        <div class="proj-content">
+          <span class="proj-tag">Agency</span>
+          <h3 class="proj-name">DevCheque — Digital Agency Website</h3>
+          <p class="proj-desc">A modern digital agency website designed for clarity, trust, and strong service presentation. Focused on professionalism and conversion-driven structure.</p>
+          <a href="https://www.figma.com/design/uS6r753Ly4lv1pCWEzASVy/Works?node-id=865-2680&t=UmKs2YzBBbvamlM1-4" target="_blank" class="proj-link">View Case Study →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img class="proj-img" src="https://i.ibb.co/B59d9bj8/mockup.png" alt="SoleRush"/>
+        <div class="proj-overlay"></div>
+        <div class="proj-content">
+          <span class="proj-tag">E-Commerce</span>
+          <h3 class="proj-name">SoleRush — E-Commerce Store</h3>
+          <p class="proj-desc">A sneaker and streetwear platform designed for fast browsing, mobile-first usability, and smooth product discovery.</p>
+          <a href="https://www.figma.com/design/GpvtVbTyqEJLLSDz0b0rTr/practce-wireframe?node-id=552-1426&t=Xpygn24eXPGH02sZ-4" target="_blank" class="proj-link">View Case Study →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img class="proj-img" src="https://i.ibb.co/F4dJZxc3/image.png" alt="Deluxe Solar"/>
+        <div class="proj-overlay"></div>
+        <div class="proj-content">
+          <span class="proj-tag">Landing Page</span>
+          <h3 class="proj-name">Deluxe Solar — Solar Energy Landing Page</h3>
+          <p class="proj-desc">A conversion-focused landing page highlighting affordability, trust, and clear service communication for a solar energy company.</p>
+          <a href="https://www.figma.com/design/GpvtVbTyqEJLLSDz0b0rTr/practce-wireframe?node-id=420-2029&t=Xpygn24eXPGH02sZ-4" target="_blank" class="proj-link">View Case Study →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img class="proj-img" src="https://i.ibb.co/Tyf1KTJ/Body.png" alt="Afolake Mart"/>
+        <div class="proj-overlay"></div>
+        <div class="proj-content">
+          <span class="proj-tag">Landing Page</span>
+          <h3 class="proj-name">Afolake Mart — Supermarket Landing Page</h3>
+          <p class="proj-desc">A simple and intuitive layout designed for product visibility and easy customer access for a local Ibadan supermarket.</p>
+          <a href="https://www.figma.com/design/uS6r753Ly4lv1pCWEzASVy/Works?node-id=1130-2265&t=UmKs2YzBBbvamlM1-4" target="_blank" class="proj-link">View Case Study →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img class="proj-img" src="https://i.ibb.co/ccbqKdvS/interflare.png" alt="Internflare"/>
+        <div class="proj-overlay"></div>
+        <div class="proj-content">
+          <span class="proj-tag">Landing Page</span>
+          <h3 class="proj-name">Internflare — Career Platform Landing Page</h3>
+          <p class="proj-desc">A professional landing page for an internship and career platform focused on trust-building, clarity, and application-driven UX.</p>
+          <a href="https://www.figma.com/design/uS6r753Ly4lv1pCWEzASVy/Works?node-id=1115-1267&t=UmKs2YzBBbvamlM1-4" target="_blank" class="proj-link">View Case Study →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP DESIGN -->
+<section id="apps">
+  <div class="reveal">
+    <div class="sec-label">App Design</div>
+    <h2 class="sec-title">Mobile <em>Projects</em></h2>
+    <p class="sec-intro">Designing mobile experiences that feel intuitive, premium, and purposeful.</p>
+    <div class="apps-grid">
+      <div class="proj-card app-card">
+        <img class="app-img" src="https://i.ibb.co/tM2Vktrg/image.png" alt="VaultPay"/>
+        <div class="proj-overlay"></div>
+        <div class="proj-content">
+          <span class="proj-tag">Mobile App · Fintech</span>
+          <h3 class="proj-name">VaultPay — Mobile Banking UI</h3>
+          <p class="proj-desc">A full-featured mobile banking UI designed for smart savings, seamless transfers, and effortless money management. Built with clean visual hierarchy and intuitive user flows.</p>
+          <div class="app-screens">Onboarding · Verification · Dashboard · Profile</div>
+          <a href="#" class="proj-link" style="margin-top:0.8rem;display:inline-flex;">View Case Study →</a>
+        </div>
+      </div>
+      <div class="proj-card app-card">
+        <img class="app-img" src="https://i.ibb.co/whJ53wbb/image.png" alt="NexTalk"/>
+        <div class="proj-overlay"></div>
+        <div class="proj-content">
+          <span class="proj-tag">Mobile App · Messaging</span>
+          <h3 class="proj-name">NexTalk — Messaging App UI</h3>
+          <p class="proj-desc">A modern messaging experience designed for smooth real-time communication. Clean conversation flows, intuitive navigation, and a refined visual system built for everyday use.</p>
+          <div class="app-screens">Chat List · Conversation · Verification · Settings</div>
+          <a href="#" class="proj-link" style="margin-top:0.8rem;display:inline-flex;">View Case Study →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-pattern"></div>
+  <div class="reveal">
+    <div class="sec-label">About</div>
+    <h2 class="sec-title" style="margin-bottom:3rem;">The <em>Designer</em></h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I'm Fredrick — a UI/UX and graphic designer who builds digital products that work as well as they look. My focus is clean, functional, and visually refined — the kind of design that guides users without them noticing.</p>
+        <p>I specialize in interface design, product experiences, and brand visuals for startups and businesses that take quality seriously. Based in Ibadan, I bring together modern product thinking and strong visual identity to create work that feels intentional from the first pixel.</p>
+        <p>Most designers make things beautiful. I make things beautiful and purposeful — every layout, every screen, every visual decision is tied to one goal: results for the people I work with.</p>
+        <div class="about-sig">Fredrick.</div>
+      </div>
+      <div class="about-pills">
+        <div class="pill"><span class="pill-key">Based In</span><span class="pill-val">Ibadan, Nigeria</span></div>
+        <div class="pill"><span class="pill-key">Speciality</span><span class="pill-val">UI/UX & Graphic Design</span></div>
+        <div class="pill"><span class="pill-key">Primary Tool</span><span class="pill-val">Figma</span></div>
+        <div class="pill"><span class="pill-key">Behance</span><span class="pill-val">behance.net/MbakaFred</span></div>
+        <div class="pill"><span class="pill-key">Also On</span><span class="pill-val">X · Telegram · Discord</span></div>
+        <div class="pill"><span class="pill-key">Contact</span><span class="pill-val">mbakafredrick88@gmail.com</span></div>
+        <div class="pill"><span class="pill-key">Status</span><span class="pill-val open">🟢 Open to Work</span></div>
+        <a href="https://drive.google.com/uc?export=download&id=1bnU1cUPL798LBt-PTqxP7WhbLjfQ7faZ" target="_blank" class="cv-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section id="numbers">
+  <div class="reveal">
+    <div class="sec-label">By The Numbers</div>
+    <h2 class="sec-title">The <em>Impact</em></h2>
+    <p class="sec-intro">Real work. Real results. Real relationships.</p>
+    <div class="numbers-grid">
+      <div class="num-card">
+        <div class="num-figure" data-count="7">0<span>+</span></div>
+        <div class="num-label">Projects Completed</div>
+      </div>
+      <div class="num-card">
+        <div class="num-figure" data-count="2">0<span>+</span></div>
+        <div class="num-label">Years Experience</div>
+      </div>
+      <div class="num-card">
+        <div class="num-figure" data-count="3">0<span>+</span></div>
+        <div class="num-label">Happy Clients</div>
+      </div>
+      <div class="num-card">
+        <div class="num-figure">5<span>★</span></div>
+        <div class="num-label">Average Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="reveal">
+    <div class="sec-label">Toolkit</div>
+    <h2 class="sec-title">Tools I <em>Use</em></h2>
+    <p class="sec-intro">The tools behind every premium deliverable.</p>
+    <div class="tools-grid">
+      <div class="tool-item">
+        <div class="tool-icon">🎨</div>
+        <div class="tool-name">Figma</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🖊️</div>
+        <div class="tool-name">FigJam</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">✏️</div>
+        <div class="tool-name">Canva</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">📋</div>
+        <div class="tool-name">Notion</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">☁️</div>
+        <div class="tool-name">Google Workspace</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🤖</div>
+        <div class="tool-name">Claude AI</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">💡</div>
+        <div class="tool-name">ChatGPT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="reveal">
+    <div class="sec-label">How I Work</div>
+    <h2 class="sec-title">My Design <em>Process</em></h2>
+    <p class="sec-intro">Every project follows a deliberate path — from first conversation to final delivery.</p>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-num">01</div>
+        <div class="process-line"></div>
+        <div class="process-name">Discovery</div>
+        <p class="process-desc">Understanding your vision, goals, and audience before a single pixel is touched. Clarity at this stage defines everything that follows.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">02</div>
+        <div class="process-line"></div>
+        <div class="process-name">Strategy</div>
+        <p class="process-desc">Defining the right direction through research, competitive insight, and clear creative planning aligned to your business objectives.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">03</div>
+        <div class="process-line"></div>
+        <div class="process-name">Design</div>
+        <p class="process-desc">Crafting cohesive interfaces and visual identities with precision and intention — every element deliberate, nothing decorative without purpose.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">04</div>
+        <div class="process-line"></div>
+        <div class="process-name">Prototype</div>
+        <p class="process-desc">Building interactive prototypes that let you see, feel, and navigate the experience before anything is handed off for development.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">05</div>
+        <div class="process-line"></div>
+        <div class="process-name">Refinement</div>
+        <p class="process-desc">Testing every detail for quality, usability, and performance. Iterating until the work is exactly right — not just good enough.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">06</div>
+        <div class="process-line"></div>
+        <div class="process-name">Delivery</div>
+        <p class="process-desc">Handing over work that is built to last and designed to grow — with full documentation and support through every final detail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="reveal">
+    <div class="sec-label">Services</div>
+    <h2 class="sec-title">Design <em>Engagements</em></h2>
+    <p class="sec-intro">Structured design solutions tailored to your product and business goals.</p>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-tier">Starter</div>
+        <div class="svc-name">Interface Design</div>
+        <div class="svc-price">₦80,000 – ₦150,000</div>
+        <ul class="svc-list">
+          <li>1 landing page or simple UI</li>
+          <li>Basic layout & structure</li>
+          <li>Responsive design</li>
+          <li>1 revision cycle</li>
+        </ul>
+        <a href="#contact" class="svc-btn">Start Project</a>
+      </div>
+      <div class="svc-card featured">
+        <div class="svc-tier">Standard — Most Popular</div>
+        <div class="svc-name">Product Design</div>
+        <div class="svc-price">₦200,000 – ₦400,000</div>
+        <ul class="svc-list">
+          <li>Full website or app UI</li>
+          <li>UX structure & user journey mapping</li>
+          <li>5–10 high-fidelity screens</li>
+          <li>Design system (components, typography)</li>
+          <li>2 revision cycles</li>
+        </ul>
+        <a href="#contact" class="svc-btn">Start Project</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-tier">Premium</div>
+        <div class="svc-name">Brand + Product Experience</div>
+        <div class="svc-price">₦500,000 – ₦1,000,000+</div>
+        <ul class="svc-list">
+          <li>Full product design system</li>
+          <li>UI/UX + brand identity direction</li>
+          <li>Conversion-focused landing page</li>
+          <li>Advanced UX strategy</li>
+          <li>Priority delivery & refinement</li>
+        </ul>
+        <a href="#contact" class="svc-btn">Start Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal">
+    <div class="sec-label">Testimonials</div>
+    <h2 class="sec-title">Kind <em>Words</em></h2>
+    <p class="sec-intro">What clients say about working with me.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The design completely elevated our brand presence. Clean, modern, and very professional."</p>
+        <div class="testi-author"><div class="testi-name">Client</div><div class="testi-role">Digital Agency</div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"We saw immediate improvement in user engagement after the redesign. The UX is very thoughtful."</p>
+        <div class="testi-author"><div class="testi-name">Product Owner</div><div class="testi-role">E-Commerce Brand</div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Fast delivery and premium quality. The attention to detail was impressive."</p>
+        <div class="testi-author"><div class="testi-name">Founder</div><div class="testi-role">Startup</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner reveal">
+    <div class="contact-avail">I'm currently available for select projects.</div>
+    <h2 class="contact-title">Let's Work <em>Together</em></h2>
+    <p class="contact-sub">Have a project in mind? Reach out through any of the platforms below and let's create something extraordinary.</p>
+    <div class="contact-links">
+      <a href="mailto:mbakafredrick88@gmail.com" class="contact-link">✉ Email</a>
+      <a href="https://wa.me/2349078732031?text=Hi%20Fred%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" class="contact-link">💬 WhatsApp</a>
+      <a href="https://t.me/fredwe3" target="_blank" class="contact-link">✈ Telegram</a>
+      <a href="https://x.com/designwithfred" target="_blank" class="contact-link">𝕏 Twitter</a>
+      <a href="https://behance.net/MbakaFred" target="_blank" class="contact-link">🅱 Behance</a>
+    </div>
+    <a href="mailto:mbakafredrick88@gmail.com" class="contact-email">mbakafredrick88@gmail.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Fredrick<span>.</span></div>
+  <div class="footer-stamp">Designed in Ibadan · Built for the World</div>
+  <div class="footer-copy">© 2026 Mbaka Fredrick. All rights reserved.</div>
+</footer>
+
+<!-- FLOATING -->
+<a href="#contact" class="float-hire">Hire Me</a>
+<a href="https://wa.me/2349078732031?text=Hi%20Fred%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" class="float-wa">💬 WhatsApp</a>
+
+<!-- AI CHAT WIDGET -->
+<div id="chat-widget">
+  <div id="chat-label">Talk to Fred</div>
+  <div id="chat-box">
+    <div id="chat-head">
+      <div id="chat-head-info">
+        <div id="chat-avatar">F</div>
+        <div>
+          <div id="chat-name">Fred's Studio</div>
+          <div id="chat-status">Online now</div>
+        </div>
+      </div>
+      <button id="chat-close">×</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div class="chat-suggestions" id="chat-suggestions">
+      <button class="sug-btn" onclick="sendSuggestion('💼 See Fred\'s services')">💼 Services</button>
+      <button class="sug-btn" onclick="sendSuggestion('💰 What are your rates?')">💰 Rates</button>
+      <button class="sug-btn" onclick="sendSuggestion('📅 Are you available?')">📅 Availability</button>
+    </div>
+    <div class="chat-handoff" id="chat-handoff">
+      <span>Continue with Fred directly →</span>
+      <a href="https://t.me/fredwe3" target="_blank">Open Telegram</a>
+    </div>
+    <div id="chat-input-wrap">
+      <input id="chat-input" type="text" placeholder="Ask me anything..."/>
+      <button id="chat-send">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="chat-toggle">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </div>
+</div>
+
+<script>
+// WORD CYCLE
+const words=document.querySelectorAll('.word-wrap .word');
+let wi=0;
+setInterval(()=>{
+  words[wi].classList.remove('active');
+  words[wi].classList.add('exit');
+  setTimeout(()=>words[wi].classList.remove('exit'),200);
+  wi=(wi+1)%words.length;
+  words[wi].classList.add('active');
+},1200);
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+
+// SCROLL PROGRESS
+window.addEventListener('scroll',()=>{
+  const p=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  document.getElementById('spb').style.width=p+'%';
+});
+
+// REVEAL
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// COUNTER
+const countObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&e.target.dataset.count){
+      const target=+e.target.dataset.count,dur=1200,step=dur/target;
+      let c=0;
+      const t=setInterval(()=>{c++;e.target.childNodes[0].textContent=c;if(c>=target)clearInterval(t);},step);
+      countObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('[data-count]').forEach(el=>countObs.observe(el));
+
+// CHAT
+const SYSTEM_PROMPT=`You are the studio assistant for Mbaka Fredrick (Fred), a premium UI/UX Designer and Visual Identity Specialist based in Ibadan, Nigeria.
+
+Your job is to help visitors understand Fred's services, pricing, and availability — and guide them toward making contact.
+
+PERSONALITY:
+- Tone: Calm, confident, premium. Like a front desk assistant at a high-end creative agency.
+- Be concise. Never more than 4 lines per response.
+- Never say "Great question", "Certainly", "Absolutely", or any generic AI phrases.
+- Always refer to Fred in third person. Say "Fred" not "I".
+- End every response with either a question or a clear next action.
+
+FRED'S SERVICES & PRICING:
+- Starter (Interface Design): ₦80,000–₦150,000 — 1 landing page or simple UI, basic layout, responsive design, 1 revision
+- Standard (Product Design): ₦200,000–₦400,000 — Full website/app UI, UX structure, 5-10 screens, design system, 2 revisions
+- Premium (Brand + Product Experience): ₦500,000–₦1,000,000+ — Full product design system, UI/UX + brand identity, conversion landing page, advanced UX strategy, priority delivery
+
+FRED'S WORK: UI/UX Design, Graphic Design, App Design (Mobile), Visual Identity, Digital Advertising
+
+FRED'S PROCESS: Discovery → Design → Prototype → Deliver
+
+FRED'S AVAILABILITY: Currently open to new projects. Responds within a few hours.
+
+FRED'S CONTACT:
+- Telegram: @fredwe3
+- WhatsApp: +234 9078732031
+- Email: mbakafredrick88@gmail.com
+- X: @designwithfred
+
+CONVERSATION GOAL:
+Guide every visitor toward: Telegram (@fredwe3), WhatsApp, or Email.
+After 3-4 exchanges, naturally introduce the contact step.
+
+NEVER:
+- Answer general knowledge questions
+- Discuss topics unrelated to Fred's business
+- Give long paragraphs
+- Sound like a generic AI chatbot
+
+If asked anything outside Fred's business scope, say: "That's outside what I can help with here — but Fred can answer that directly. Want me to connect you?"`;
+
+let messages=[],msgCount=0,handoffShown=false;
+const chatBox=document.getElementById('chat-box');
+const chatMsgs=document.getElementById('chat-messages');
+const chatInput=document.getElementById('chat-input');
+const chatHandoff=document.getElementById('chat-handoff');
+
+function addMsg(text,role){
+  const d=document.createElement('div');
+  d.className='msg '+(role==='user'?'user':'bot');
+  d.innerHTML=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+  chatMsgs.appendChild(d);
+  chatMsgs.scrollTop=chatMsgs.scrollHeight;
+}
+
+function showTyping(){
+  const t=document.createElement('div');
+  t.className='typing';t.id='typing';
+  t.innerHTML='<span></span><span></span><span></span>';
+  chatMsgs.appendChild(t);
+  chatMsgs.scrollTop=chatMsgs.scrollHeight;
+  return t;
+}
+
+async function sendMsg(text){
+  if(!text.trim())return;
+  addMsg(text,'user');
+  messages.push({role:'user',content:text});
+  msgCount++;
+  document.getElementById('chat-suggestions').style.display='none';
+  chatInput.value='';
+  const typing=showTyping();
+  try{
+    const res=await fetch('/api/chat',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        messages:messages,
+        systemPrompt:SYSTEM_PROMPT
+      })
+    });
+    const data=await res.json();
+    typing.remove();
+    const reply=data.reply||"Fred will get back to you shortly.";
+    addMsg(reply,'bot');
+    messages.push({role:'assistant',content:reply});
+    if(msgCount>=3&&!handoffShown){
+      handoffShown=true;
+      chatHandoff.style.display='flex';
+    }
+  }catch(e){
+    typing.remove();
+    addMsg("Fred's studio is a bit busy right now. Reach out directly on <strong>Telegram @fredwe3</strong> for a fast response.",'bot');
+  }
+}
+
+function sendSuggestion(text){sendMsg(text);}
+
+document.getElementById('chat-toggle').addEventListener('click',()=>{
+  chatBox.classList.toggle('open');
+  if(chatBox.classList.contains('open')&&messages.length===0){
+    setTimeout(()=>{
+      addMsg("Welcome to Fred's studio. 👋\nI'm here to help you find out if Fred is the right fit for your project.\n\nWhat brings you here today?",'bot');
+    },300);
+  }
+});
+
+document.getElementById('chat-close').addEventListener('click',()=>chatBox.classList.remove('open'));
+
+document.getElementById('chat-send').addEventListener('click',()=>sendMsg(chatInput.value));
+chatInput.addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg(chatInput.value);});
+</script>
+</body>
+</html>
