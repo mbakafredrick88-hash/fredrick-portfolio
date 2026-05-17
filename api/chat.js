@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Get API key from environment variables
+    // Get Gemini API key from Vercel environment variables
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
     if (!GEMINI_API_KEY) {
@@ -25,15 +25,10 @@ export default async function handler(req, res) {
       });
     }
 
-    // Convert messages to Gemini format
-    const geminiMessages = messages.map((msg) => ({
-      role: msg.role === 'assistant' ? 'model' : 'user',
-      parts: [
-        {
-          text: msg.content,
-        },
-      ],
-    }));
+    // Convert messages into plain text conversation
+    const conversationText = messages
+      .map((msg) => `${msg.role}: ${msg.content}`)
+      .join('\n');
 
     // Send request to Gemini API
     const response = await fetch(
@@ -43,18 +38,23 @@ export default async function handler(req, res) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          contents: geminiMessages,
 
-          systemInstruction: {
-            parts: [
-              {
-                text:
-                  systemPrompt ||
-                  "You are Fredrick's AI assistant for his portfolio website.",
-              },
-            ],
-          },
+        body: JSON.stringify({
+          contents: [
+            {
+              role: 'user',
+              parts: [
+                {
+                  text: `
+${systemPrompt || "You are Fredrick's AI assistant for his portfolio website."}
+
+Conversation:
+${conversationText}
+                  `,
+                },
+              ],
+            },
+          ],
 
           generationConfig: {
             temperature: 0.7,
@@ -69,7 +69,7 @@ export default async function handler(req, res) {
     // Debug logs
     console.log('Gemini response:', data);
 
-    // Handle API errors
+    // Handle Gemini API errors
     if (!response.ok) {
       console.error('Gemini API error:', data);
 
@@ -83,7 +83,7 @@ export default async function handler(req, res) {
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       'Sorry, I could not generate a response.';
 
-    // Return reply
+    // Return response
     return res.status(200).json({
       reply,
     });
