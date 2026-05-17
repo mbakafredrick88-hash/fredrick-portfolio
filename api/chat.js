@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -17,27 +16,26 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'API key not configured' });
     }
 
-    // Build Gemini conversation history
-    const geminiMessages = messages.map(msg => ({
+    const geminiMessages = messages.map((msg) => ({
       role: msg.role === 'assistant' ? 'model' : 'user',
-      parts: [{ text: msg.content }]
+      parts: [{ text: msg.content }],
     }));
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${AIzaSyAMTtMnz5wtA71MEW82S3Pbeu94YIgXEXY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           system_instruction: {
-            parts: [{ text: systemPrompt }]
+            parts: [{ text: systemPrompt || 'You are a helpful assistant.' }],
           },
           contents: geminiMessages,
           generationConfig: {
             maxOutputTokens: 300,
             temperature: 0.7,
-          }
-        })
+          },
+        }),
       }
     );
 
@@ -45,11 +43,14 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       console.error('Gemini API error:', data);
-      return res.status(500).json({ error: 'AI service error' });
+      return res.status(500).json({
+        error: data?.error?.message || 'AI service error',
+      });
     }
 
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 
-      "Fred will get back to you shortly.";
+    const reply =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+      'Sorry, I could not generate a response.';
 
     return res.status(200).json({ reply });
 
