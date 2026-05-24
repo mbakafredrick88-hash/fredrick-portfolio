@@ -970,24 +970,33 @@ async function sendMsg(text){
   const typing=showTyping();
   try{
     const geminiMessages=messages.map(m=>({
-      role:m.role==='assistant'?'model':'user',
-      parts:[{text:m.content}]
+      role:m.role==='assistant'?'assistant':'user',
+      content:m.content
     }));
     const res=await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCV_F02cz72zCVcblUn5lGrB-z6ir2bVG0`,
+      `https://openrouter.ai/api/v1/chat/completions`,
       {
         method:'POST',
-        headers:{'Content-Type':'application/json'},
+        headers:{
+          'Content-Type':'application/json',
+          'Authorization':'Bearer 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',
+          'HTTP-Referer':'https://fredrick-portfolio-lvxg.vercel.app',
+          'X-Title':'Fredrick Portfolio'
+        },
         body:JSON.stringify({
-          system_instruction:{parts:[{text:SYSTEM_PROMPT}]},
-          contents:geminiMessages,
-          generationConfig:{maxOutputTokens:300,temperature:0.7}
+          model:'meta-llama/llama-3.1-8b-instruct:free',
+          messages:[
+            {role:'system',content:SYSTEM_PROMPT},
+            ...geminiMessages
+          ],
+          max_tokens:300,
+          temperature:0.7
         })
       }
     );
     const data=await res.json();
     typing.remove();
-    const reply=data?.candidates?.[0]?.content?.parts?.[0]?.text||"Fred will get back to you shortly.";
+    const reply=data?.choices?.[0]?.message?.content||"Fred will get back to you shortly.";
     addMsg(reply,'bot');
     messages.push({role:'assistant',content:reply});
     if(msgCount>=3&&!handoffShown){
